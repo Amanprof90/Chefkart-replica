@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-wrap justify-between items-center gap-y-3">
           {/* Left: Logo */}
           <div className="flex items-center space-x-3">
-            <Link to="/Components/Home/Home">
+            <Link to="/">
               <img
                 src="https://thechefkart.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fchefkart-strapi-media%2FLogo_black_9e78b44631.webp&w=1920&q=75"
                 alt="ChefKart Logo"
