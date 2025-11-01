@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ✅ added useNavigate
+import { Link, useNavigate } from "react-router-dom"; //  added useNavigate
 import { GiHamburger } from "react-icons/gi";
 import { FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ hook for smooth redirect
+  const navigate = useNavigate(); //  hook for smooth redirect
 
   const handleNavigateContact = () => {
     setMenuOpen(false);
-    navigate("/contact"); // ✅ instantly redirects to Contact page
-    window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ smooth scroll to top
+    navigate("/contact"); //  instantly redirects to Contact page
+    window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
   };
 
   return (
@@ -87,7 +87,7 @@ const Navbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center space-x-3">
-            {/* ✅ Fixed redirect with smooth scroll */}
+            {/*  Fixed redirect with smooth scroll */}
             <button
               onClick={handleNavigateContact}
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-md transition text-sm sm:text-base"
@@ -162,7 +162,7 @@ const Navbar = () => {
           {/* Divider */}
           <div className="border-t border-gray-200 my-2"></div>
 
-          {/* ✅ Fixed redirect with smooth scroll */}
+          {/*  Fixed redirect with smooth scroll */}
           <button
             onClick={handleNavigateContact}
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-md transition text-center"
