@@ -18,11 +18,11 @@ export default function App() {
    <div>
     <Header/>
     <Navbar/>
-    <Home/>
+    {/* <Home/> */}
       <Routes>
-        <Route path="/Components/Home/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/Components/About/About" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/Services/Chefconnection/ChefConnection" element={<ChefConnection />} />
         <Route path="/Services/OneTimeCook/OneTimeCook" element={<OneTimeCook />} />
         <Route path="/Services/PartyChef/PartyChef" element={<PartyChef />} />

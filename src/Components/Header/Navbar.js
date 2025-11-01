@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ✅ added useNavigate
 import { GiHamburger } from "react-icons/gi";
 import { FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // ✅ hook for smooth redirect
+
+  const handleNavigateContact = () => {
+    setMenuOpen(false);
+    navigate("/contact"); // ✅ instantly redirects to Contact page
+    window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ smooth scroll to top
+  };
 
   return (
     <>
@@ -13,12 +20,12 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-wrap justify-between items-center gap-y-3">
           {/* Left: Logo */}
           <div className="flex items-center space-x-3">
-             <Link to="/Components/Home/Home"> 
-            <img
-              src="https://thechefkart.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fchefkart-strapi-media%2FLogo_black_9e78b44631.webp&w=1920&q=75"
-              alt="ChefKart Logo"
-              className="h-12 w-auto object-contain"
-            />
+            <Link to="/Components/Home/Home">
+              <img
+                src="https://thechefkart.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fchefkart-strapi-media%2FLogo_black_9e78b44631.webp&w=1920&q=75"
+                alt="ChefKart Logo"
+                className="h-12 w-auto object-contain"
+              />
             </Link>
           </div>
 
@@ -63,12 +70,11 @@ const Navbar = () => {
                 >
                   Monthly Cook
                 </Link>
-
-                 <Link
+                <Link
                   to="/Services/Chefconnection/ChefConnection"
                   className="block px-4 py-2 hover:bg-gray-100 text-sm"
                 >
-                 Join Chefkart
+                  Join Chefkart
                 </Link>
               </div>
             </div>
@@ -77,17 +83,17 @@ const Navbar = () => {
             <Link to="#" className="hover:text-orange-500 transition">
               Cooks Near Me
             </Link>
-            
           </div>
 
           {/* Right Section */}
           <div className="flex items-center space-x-3">
-            <Link
-              to="/Components/Contact/Contact"
+            {/* ✅ Fixed redirect with smooth scroll */}
+            <button
+              onClick={handleNavigateContact}
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-md transition text-sm sm:text-base"
             >
               Contact Us
-            </Link>
+            </button>
 
             {/* Burger Icon */}
             <button
@@ -128,28 +134,41 @@ const Navbar = () => {
 
         {/* Links */}
         <div className="flex flex-col px-5 py-4 space-y-4 text-gray-700 font-medium">
-          <Link to="/Components/About/About" className="hover:text-orange-500 transition">
+          <Link
+            to="/Components/About/About"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-orange-500 transition"
+          >
             About Us
           </Link>
           <Link to="#" className="hover:text-orange-500 transition">
             Blog
           </Link>
-          <Link to="/Components/Careers/Positions" className="hover:text-orange-500 transition">
+          <Link
+            to="/Components/Careers/Positions"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-orange-500 transition"
+          >
             Career
           </Link>
-          <Link to="./Components/Testimonial/Testimonial" className="hover:text-orange-500 transition">
+          <Link
+            to="./Components/Testimonial/Testimonial"
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-orange-500 transition"
+          >
             Testimonial
           </Link>
 
           {/* Divider */}
           <div className="border-t border-gray-200 my-2"></div>
 
-          <Link
-            to="/contact"
+          {/* ✅ Fixed redirect with smooth scroll */}
+          <button
+            onClick={handleNavigateContact}
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-md transition text-center"
           >
             Contact Us
-          </Link>
+          </button>
         </div>
       </div>
     </>
