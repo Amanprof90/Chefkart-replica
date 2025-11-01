@@ -1,4 +1,4 @@
-Hosted on vercel: https://chefkart-demo.vercel.app/
+Hosted on vercel: chefkartreplica.vercel.app
 
 
 # Getting Started with Create React App
